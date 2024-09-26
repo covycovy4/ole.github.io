@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Leanrock Investments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #606c38; /* Olive Green */
+            margin: 0;
+            padding: 0;
+            background-color: #fefae0; /* Off-white */
+        }
+
+        header {
+            background-color: #283618; /* Dark Green */
+            color: #fefae0; /* Off-white */
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #product-carousel {
+            position: relative;
+            overflow: hidden;
+            height: 300px; /* Adjust height as needed */
+        }
+
+        .product-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fefae0; /* Off-white text color for readability */
+            text-align: center;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .product-card.show {
+            opacity: 1;
+        }
+
+        .product-card h2, .product-card p {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-card h2 {
+            bottom: 60px;
+        }
+
+        .product-card p {
+            bottom: 40px;
+        }
+
+        .product-card .btn {
+            display: inline-block;
+            background-color: #bc6c25; /* Rust */
+            color: #fefae0; /* Off-white */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .product-card .btn:hover {
+            background-color: #a15d1c; /* Darker Rust */
+        }
+
+        .honey-card {
+            background-image: url('images/honey-image.jpg'); /* Ensure this path is correct */
+        }
+
+        .biltong-card {
+            background-image: url('images/biltong-image.jpg'); /* Ensure this path is correct */
+        }
+
+        .plant-based-card {
+            background-image: url('images/plant-based-foods-image.jpg'); /* Ensure this path is correct */
+        }
+
+        .dried-fruit-card {
+            background-image: url('images/dried-fruit-image.jpg'); /* Ensure this path is correct */
+        }
+
+        .nuts-seeds-card {
+            background-image: url('images/nuts-seeds-image.jpg'); /* Ensure this path is correct */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Experience Nature's Best</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="product-carousel">
+            <div class="container">
+                <div class="product-card honey-card">
+                    <h2>Honey</h2>
+                    <p>Discover our premium honey, sourced from the finest apiaries. Perfect for your kitchen or as a gift.</p>
+                    <a href="#" class="btn">Explore Our Honey</a>
+                </div>
+                <div class="product-card biltong-card">
+                    <h2>Biltong</h2>
+                    <p>Enjoy our range of traditional biltong, made with quality cuts and seasoned to perfection.</p>
+                    <a href="#" class="btn">Discover Our Biltong</a>
+                </div>
+                <div class="product-card plant-based-card">
+                    <h2>Plant Based Foods / Traditional Range</h2>
+                    <p>Explore our diverse range of plant-based foods and traditional dishes, crafted for your health and enjoyment.</p>
+                    <a href="#" class="btn">See Our Range</a>
+                </div>
+                <div class="product-card dried-fruit-card">
+                    <h2>Dried Fruit Range</h2>
+                    <p>Try our selection of dried fruits, ideal for snacking or adding a touch of natural sweetness to your meals.</p>
+                    <a href="#" class="btn">Browse Dried Fruits</a>
+                </div>
+                <div class="product-card nuts-seeds-card">
+                    <h2>Nuts and Seeds</h2>
+                    <p>Choose from our variety of nuts and seeds, packed with nutrients and flavor for a healthy diet.</p>
+                    <a href="#" class="btn">Check Out Nuts & Seeds</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Leanrock Investments - Ole Ranch Nature's Fresh Fusion</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.product-card');
+            let currentIndex = 0;
+            const duration = 3000; // Duration of each card display in milliseconds
+
+            function showNextCard() {
+                cards.forEach((card, index) => {
+                    card.classList.remove('show');
+                    if (index === currentIndex) {
+                        card.classList.add('show');
+                    }
+                });
+
+                currentIndex = (currentIndex + 1) % cards.length;
+            }
+
+            showNextCard(); // Initial call to show the first card
+            setInterval(showNextCard, duration); // Change card every 3 seconds
+        });
+    </script>
+</body>
+</html>
+
